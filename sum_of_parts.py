@@ -106,7 +106,7 @@ def next_vertex_advanced(graph,vertices,workers,visited=[]):
         next_free_worker=get_next_free_worker(workers)
         if next_free_worker is not None:
             workers[next_free_worker]["task"]=next_job
-            workers[next_free_worker]["remaining"]=next_job+1#time in seconds=ordinal position+1
+            workers[next_free_worker]["remaining"]=next_job+61#time in seconds=ordinal position+1
             jobs_assigned+=1
 
     return workers
@@ -144,7 +144,7 @@ def solve_advanced(graph,vertices,num_workers=2):
     answer.append([time,[dict(w) for w in workers],list(visited)])#copies
     return answer
 
-SIMPLE=True
+SIMPLE=False
     
 if "__main__"==__name__:
     graph=[[0 for i in range(26)] for j in range(26)]
@@ -164,7 +164,7 @@ if "__main__"==__name__:
         visit_list=solve_basic(graph,vertices)
         print "Answer=","".join(visit_list)
     else:
-        answer=solve_advanced(graph,vertices)
+        answer=solve_advanced(graph,vertices,5)
         for t,ws,v in answer:
             print "Time",t,
             for w in ws:
