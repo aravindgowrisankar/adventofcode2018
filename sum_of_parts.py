@@ -59,7 +59,7 @@ def next_vertex(graph,vertices,visited=[]):
 def solve_basic(graph,vertices):
     answer=[]
     visited=[]
-    for i in len(vertices):
+    for i in range(len(vertices)):
         #print "in degree of ",chr(vertex+65),in_degree(graph,vertex)
         v=next_vertex(graph,vertices,visited)
         #print "visited",v
@@ -144,7 +144,7 @@ def solve_advanced(graph,vertices,num_workers=2):
     answer.append([time,[dict(w) for w in workers],list(visited)])#copies
     return answer
 
-SIMPLE=False
+SIMPLE=True
     
 if "__main__"==__name__:
     graph=[[0 for i in range(26)] for j in range(26)]
